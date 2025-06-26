@@ -23,7 +23,7 @@ RUN docker-php-ext-configure pcntl --enable-pcntl \
      && docker-php-ext-enable redis zip \
      && docker-php-ext-configure gd --with-freetype --with-jpeg
  
-#  RUN pecl install xdebug-3.0.3 && docker-php-ext-enable xdebug
+# RUN pecl install xdebug-3.0.3 && docker-php-ext-enable xdebug
  
  
  COPY ./ /www

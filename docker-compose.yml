@@ -1,4 +1,3 @@
-version: '3.4'
 
 services:
   walletapp:    
@@ -28,6 +27,23 @@ services:
       - rede
     links:
       - walletapp
+  walletapp-db:
+    container_name: walletapp-db
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: will
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_DATABASE: walletapp
+      MYSQL_USER: will
+      MYSQL_PASSWORD: will
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db:/var/lib/mysql
+    networks:
+      - rede
 networks:
   rede:
     driver: bridge
